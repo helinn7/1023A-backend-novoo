@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { db } from '../database/banco-mongo.js';
+import { MongoClient } from 'mongodb';
 
 interface ItemCarrinho {
     produtoId: string;
@@ -103,3 +104,5 @@ class CarrinhoController {
 }
 
 export default new CarrinhoController();
+
+const client = new MongoClient(process.env.MONGO_URI!);
