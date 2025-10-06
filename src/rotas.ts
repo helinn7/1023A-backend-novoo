@@ -6,18 +6,20 @@ import { Router } from "express";
 
 const rotas = Router();
 
-//Criando rotas para os usuários
+/*//Criando rotas para os usuários
 rotas.post("/usuarios", usuarioController.adicionar);
 rotas.get("/usuarios", usuarioController.listar);
 
 rotas.post("/produtos", produtosController.adicionar);
 rotas.get("/produtos", produtosController.listar);
 //Ainda vamos ter que criar as rotas para carrinho e produtos
-//Tarefa para casa :)
+//Tarefa para casa :)*/
 
-rotas.post("/carrinho", carrinhoController.adicionarItem);
-rotas.delete("/carrinho/:produtoId", carrinhoController.removerItem);
-rotas.put("/carrinho/:produtoId", carrinhoController.atualizarQuantidade);
-rotas.get("/carrinho/:usuarioId", carrinhoController.listar);
-rotas.delete("/carrinho/:usuarioId/limpar", carrinhoController.remover);
+rotas.post("/adicionarItem", carrinhoController.adicionarItem);
+rotas.delete("/removerItem/:usuarioId/:produtoId", carrinhoController.removerItem);
+rotas.put("/atualizarQuantidade/:produtoId", carrinhoController.atualizarQuantidade);
+rotas.get("/listar/:usuarioId", carrinhoController.listar);
+rotas.delete("/remover", carrinhoController.remover);
+
 export default rotas;
+

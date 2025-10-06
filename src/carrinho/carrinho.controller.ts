@@ -51,8 +51,7 @@ class CarrinhoController {
     //removerItem
     async removerItem(req: Request, res: Response) {
         try {
-            const { usuarioId } = req.body;
-            const { produtoId } = req.params;
+            const { usuarioId, produtoId } = req.body;
             if (!usuarioId || !produtoId) {
                 return res.status(400).json({ mensagem: 'Dados obrigatórios faltando.' });
             }
@@ -75,8 +74,7 @@ class CarrinhoController {
     //atualizarQuantidade
     async atualizarQuantidade(req: Request, res: Response) {
         try {
-            const { usuarioId, quantidade } = req.body;
-            const { produtoId } = req.params;
+            const { usuarioId, produtoId, quantidade } = req.body;
             if (!usuarioId || !produtoId || typeof quantidade !== 'number') {
                 return res.status(400).json({ mensagem: 'Dados obrigatórios faltando ou inválidos.' });
             }
@@ -135,6 +133,5 @@ class CarrinhoController {
         }
     }
 }
-
 export default new CarrinhoController();
 
